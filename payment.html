@@ -23,9 +23,12 @@
     <title>Payment | SEDS CUSAT</title>
   </head>
   <body>
-    <h1 class="text-center mt-4" >SEDS CUSAT Membership</h1>
-    <h3 class="text-center"><a href="#form" type="button"  class="btn btn-secondary"><h4>Pay Membership Fee Using UPI and fill the Form Below</h4></a>
-  </h3>
+    <h1 class="text-center mt-4">SEDS CUSAT Membership</h1>
+    <h3 class="text-center mx-4">
+      <a href="#form" type="button" class="btn btn-secondary"
+        ><h4>Pay Membership Fee Using UPI and fill the Form Below</h4></a
+      >
+    </h3>
     <div class="d-flex justify-content-center align-items-center mt-4">
       <div style="width: 20rem">
         <img
@@ -42,18 +45,18 @@
             Pay Rs 349/- to Below Upi Id
           </h5>
           <div
-            class="mt-2 alert alert-secondary d-flex justify-content-center align-items-center"
+            class="mt-2 alert alert-secondary d-flex justify-content-around align-items-center"
           >
-            <h5 id="myInput" class="card-title text-center">
+            <h6 id="myInput" class="card-title text-center">
               sharooqlavanya04-1@okicici
-            </h5>
+            </h6>
             <img
               id="copy"
               onclick="myFunction()"
               data-bs-toggle="tooltip"
               data-bs-title="Copy To Clipboard"
               class="mx-1 muted"
-              style="width: 8%; height: 90%; cursor: pointer"
+              style="width: 6%; height: 50%; cursor: pointer"
               src="https://raw.githubusercontent.com/SEDS-CUSAT/Image-Hoster/82597c22efda928bf440d3d4de42783aae2d2ff2/payment/clipboard-solid.svg"
               alt=""
             />
@@ -72,7 +75,9 @@
       height="1385"
     ></iframe>
 
-    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div
+      class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3"
+    >
       <div
         id="liveToast"
         class="toast"
@@ -80,7 +85,10 @@
         aria-live="assertive"
         aria-atomic="true"
       >
-        <div style="background-color: #d1e7dd; color: #286448;" class="toast-header">
+        <div
+          style="background-color: #d1e7dd; color: #286448"
+          class="toast-header"
+        >
           <strong class="me-auto">Copied To Clipboard</strong>
           <button
             type="button"
@@ -93,6 +101,9 @@
     </div>
 
     <script>
+
+      // js for tootltip
+
       const tooltipTriggerList = document.querySelectorAll(
         '[data-bs-toggle="tooltip"]'
       );
@@ -100,20 +111,27 @@
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
 
+      // end js for tooltip
+
+      // js for toast 
+
+      const toastTrigger = document.getElementById("copy");
+      const toastLiveExample = document.getElementById("liveToast");
+      if (toastTrigger) {
+        toastTrigger.addEventListener("click", () => {
+          const toast = new bootstrap.Toast(toastLiveExample);
+          toast.show();
+        });
+      }
+
+      // end js for toast
+
+      // copy to clipboard function
+
       function myFunction() {
         let copyText = document.getElementById("myInput").innerHTML;
         copyText = copyText.trim();
         navigator.clipboard.writeText(copyText);
-
-        const toastTrigger = document.getElementById("copy");
-        const toastLiveExample = document.getElementById("liveToast");
-        if (toastTrigger) {
-          toastTrigger.addEventListener("click", () => {
-            const toast = new bootstrap.Toast(toastLiveExample);
-
-            toast.show();
-          });
-        }
       }
     </script>
   </body>
